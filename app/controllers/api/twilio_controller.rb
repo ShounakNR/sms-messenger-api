@@ -1,6 +1,4 @@
 class Api::TwilioController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   def status
     sid = params["MessageSid"]
     status = params["MessageStatus"]
