@@ -13,7 +13,7 @@ class TwilioService
       from: @from,
       to: @to,
       body: message.content,
-      status_callback: Rails.application.routes.url_helpers.api_twilio_status_webhook_url(host: Rails.env.production? ? "sms-messenger-api.onrender.com" : "localhost:3000")
+      # status_callback: Rails.application.routes.url_helpers.api_twilio_status_webhook_url(host: Rails.env.production? ? "sms-messenger-api.onrender.com" : "localhost:3000")
     )
 
     message.update(twilio_sid: twilio_message.sid, status: "queued")
