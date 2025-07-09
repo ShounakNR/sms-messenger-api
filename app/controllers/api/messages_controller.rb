@@ -1,6 +1,6 @@
 class Api::MessagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_message, only: [:show, :update, :destroy]
+  before_action :set_message, only: [ :show, :update, :destroy ]
 
   # GET /api/messages
   def index
@@ -16,6 +16,7 @@ class Api::MessagesController < ApplicationController
   def create
     message = current_user.messages.build(message_params)
     if message.save
+      TwilioService.new.send_sms(message: message)
       render json: message, status: :created
     else
       render json: { errors: message.errors.full_messages }, status: :unprocessable_entity
@@ -46,6 +47,6 @@ class Api::MessagesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :phone_number)
   end
 end

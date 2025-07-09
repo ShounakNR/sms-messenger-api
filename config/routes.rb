@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users,
-    path: '',
+    path: "",
     path_names: {
-      sign_in: 'login',
-      sign_out: 'logout',
-      registration: 'signup'
+      sign_in: "login",
+      sign_out: "logout",
+      registration: "signup"
     },
     controllers: {
-      sessions: 'users/sessions',
-      registrations: 'users/registrations'
+      sessions: "users/sessions",
+      registrations: "users/registrations"
     }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   namespace :api do
     resources :messages
+    post "/twilio/status", to: "twilio#status", as: :twilio_status_webhook
   end
 end
