@@ -2,6 +2,8 @@ class Api::MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_message, only: [ :show, :update, :destroy ]
 
+  respond_to :json
+
   # GET /api/messages
   def index
     render json: current_user.messages
