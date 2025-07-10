@@ -10,7 +10,7 @@ My SMS Messenger is a full-stack web application that allows users to register/l
 ## Tech Stack
 
 **Frontend**  
-- Angular 17 (Standalone components)  
+- Angular  
 - TailwindCSS  
 - Netlify (Deployment)
 
