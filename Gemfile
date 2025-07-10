@@ -20,8 +20,10 @@ gem 'mongoid'
 
 # Authentication
 gem 'devise'
+gem 'devise-jwt'
 
 gem 'rack-cors'
+gem 'byebug'
 
 # Twilio Integration
 gem 'twilio-ruby'

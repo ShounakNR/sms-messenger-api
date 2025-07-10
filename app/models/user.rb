@@ -3,7 +3,8 @@ class User
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,:jwt_authenticatable,
+         jwt_revocation_strategy: self
 
   ## Database authenticatable
   field :email,              type: String, default: ""
@@ -41,4 +42,12 @@ class User
   has_many :messages, dependent: :destroy
 
   validates :username, presence: true, uniqueness: true
+
+  def self.jwt_revocation_strategy
+    Devise::JWT::RevocationStrategies::Null
+  end
+
+  def self.primary_key
+    :_id
+  end
 end
