@@ -15,7 +15,7 @@ Rails.application.configure do
   # Turn on fragment caching in view templates.
   config.action_controller.perform_caching = true
 
-  config.session_store :cookie_store,
+  Rails.application.config.session_store :cookie_store,
   key: "_sms_messenger_session",
   same_site: :none,
   secure: true
