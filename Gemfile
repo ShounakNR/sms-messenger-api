@@ -26,7 +26,7 @@ gem 'rack-cors'
 # Twilio Integration
 gem 'twilio-ruby'
 gem 'dotenv-rails'
-
+gem 'rails_same_site_cookie'
 
 
 # Use Redis adapter to run Action Cable in production
