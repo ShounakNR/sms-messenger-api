@@ -153,6 +153,7 @@ ng serve
 
 ## Future Improvements
 
+* Add mobile friendly views
 * Add Account/Profile Button
 * Add pagination for messages
 * Allow multiple phone numbers per user
