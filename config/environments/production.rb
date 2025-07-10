@@ -15,11 +15,6 @@ Rails.application.configure do
   # Turn on fragment caching in view templates.
   config.action_controller.perform_caching = true
 
-  Rails.application.config.session_store :cookie_store,
-  key: "_sms_messenger_session",
-  same_site: :none,
-  secure: true
-
   # Cache assets for far-future expiry since they are all digest stamped.
   config.public_file_server.headers = { "cache-control" => "public, max-age=#{1.year.to_i}" }
 
